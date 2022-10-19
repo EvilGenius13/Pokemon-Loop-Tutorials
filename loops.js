@@ -1,9 +1,17 @@
+const Charmander = require('./classes/charmander')
+const Bulbasaur = require('./classes/bulbasaur')
+const Squirtle = require('./classes/squirtle')
+const Pikachu = require('./classes/pikachu')
+
 //Array Example
 let pokemonNames = ['Charmander', 'Bulbasaur', 'Squirtle', 'Pikachu'];
+
 //Object Example
 let pokemonNameType = {'Charmander': 'fire', 'Bulbasaur': 'grass', 'Squirtle': 'water', 'Pikachu': 'electric'};
+
 //Object with integer example
 let pokemonHP = {'Charmander': 80, 'Bulbasaur': 65, 'Squirtle': 98, 'Pikachu': 0}
+
 //Array of Objects Example
 let pokeCenter = [{
     name: 'Charmander', type: 'fire', pokedexnum: 4},
@@ -11,6 +19,15 @@ let pokeCenter = [{
 {   name: 'Squirtle', type: 'water', pokedexnum: 7},
 {   name: 'Pikachu', type: 'electric', pokedexnum: 25},
 ];
+
+// Pokemon array of objects (classes)
+const charmander = new Charmander('Charmander', 'fire', 4, 'Ember')
+const bulbasaur = new Bulbasaur('Bulbasaur', 'grass', 1, 'Razor Leaf')
+const squirtle = new Squirtle('Squirtle', 'water', 7, 'splash')
+const pikachu = new Pikachu('Pikachu', 'electric', 25, 'spark')
+let pokemonClasses = []
+pokemonClasses.push(charmander, bulbasaur, squirtle, pikachu)
+
 // This is what each type of array/object look like when printed
 console.log(pokemonNames);
 console.log('----------------------');
@@ -18,7 +35,8 @@ console.log(pokemonNameType);
 console.log('----------------------');
 console.log(pokeCenter);
 console.log('----------------------');
-
+console.log(pokemonClasses);
+console.log('----------------------');
 // Basic for loop of array - will loop through names one by one
 for (let index = 0; index <pokemonNames.length; index++) {
     console.log(`I choose you ${pokemonNames[index]}!`);
@@ -72,4 +90,10 @@ pokeCenter.forEach((pokemon, index) => {
     console.log(`${pokemon.name} is in slot ${index}.`)
 });
 console.log('----------------------');
+
+// looping through array of objects (classes)
+pokemonClasses.forEach((poke) => {
+    poke.chooseYou();
+    poke.Special();
+});
 
